@@ -12,14 +12,6 @@ ORM: Sequelize
 
 ## How it works
 
-Each mood record is called a Diem <br>
-- Create a Diem
-- Read
-    - All Diems
-    - Today's Diems
-    - Weekly Diems
-    - Monthly Diems
-    - 6 Monthly Diems
-    - Yearly Diems
-- ~~Update Diems~~
-- Delete Diems
+Each daily record is called a Diem. Each Diem records the date created, user's current mood & current condition.<br>
+The user will go to their dashboard & see a list of past diems and a graph that plots out the records from the first to the most recent. Records can be filtered by the last week, month, or year.
+  
