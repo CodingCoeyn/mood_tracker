@@ -2,7 +2,7 @@
 
 
 ## Goals
-Record daily mood and graph the fluctuations over time. The goal is to track & anticipate changes in mood - to know if you should stock up on chocolate or ~~plan a night out.~~
+Record daily mood and graph the fluctuations over time. The goal is to track & anticipate changes in mood.
 
 ## Stack
 Frontend: React, D3.js <br>
