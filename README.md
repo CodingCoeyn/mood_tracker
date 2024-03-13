@@ -7,7 +7,7 @@ Database: PostgresQL <br>
 ORM: Sequelize
 
 ## Project Description
-This mood tracker will record and graph the user's mood over time. Te goal is to track and anticipate changes in mood. React & Bootstrap are our frontend frameworks and D3.js will do the calculations for our graph. Serverside we have Express.js and Node.js. We'll be using PostgresQl as our database and Sequelize to feed in our starting data.
+This mood tracker will record and graph the user's mood over time. The goal is to track and anticipate changes in mood. React & Bootstrap are our frontend frameworks and D3.js will do the calculations for our graph. Serverside we have Express.js and Node.js. We'll be using Postgres as our database and Sequelize to feed in our starting data.
 
 ## How to Install and Run the Project
 [Node](https://nodejs.org/en/download/)<br>
