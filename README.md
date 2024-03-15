@@ -24,11 +24,5 @@ The user types in their mood and selects their condition from a dropdown.
 
 The graph is plotted based on the user's condition. Each condition has an integer value - 3, 2, 1,...,-3 - that determine's where it falls on the graphs y-axis. The x-axis is time in months.
 
-<div style="display: none;">
-## Credit
-
-<p style="color:orangered;" >Ask about this part</p>
-</div>
-
 ## License
 [GNU GENERAL PUBLIC LICENSE](LICENSE)
