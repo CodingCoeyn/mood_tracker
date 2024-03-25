@@ -15,8 +15,8 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   daily_record.init({
-    ratingId: DataTypes.INTEGER,
-    mood: DataTypes.STRING
+    mood: DataTypes.STRING,
+    ratingId: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'daily_record',
