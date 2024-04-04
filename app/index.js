@@ -1,6 +1,11 @@
 const db = require('./models');
 const express = require('express');
+const axios = require('axios');
 const app = express();
+const cors = require("cors");
+
+app.use(cors());
+// app.use(express.json())
 
 app.get('/', (req, res) => {
     res.send('Hello, Mahassin!');
@@ -53,7 +58,7 @@ app.put('/daily_records/:id', (req, res) => {
         where:{id: parseInt(req.params.id)}
     }).then(records_changed=>{
         res.send(records_changed+' records have been updated.');
-        process.exit();
+        // process.exit();
     });
 
 });
@@ -66,7 +71,7 @@ app.delete('/daily_records/:id', (req, res) => {
         where: {id: parseInt(req.params.id)}
     }).then(records_deleted=>{
         res.send(records_deleted+' records have been deleted.');
-        process.exit();
+        // process.exit();
     });
 
 });
