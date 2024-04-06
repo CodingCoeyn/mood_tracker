@@ -6,16 +6,16 @@ import Record_Modal from './components/Record_Modal';
 
 function App() {
   return (
-    <div className="App container">
+    <div className="App container mt-4">
       
       <div className="row">
 
-        <div className="col" >
+        <div className="col-md-6 border-black border-2 border" >
 
           <Record_Graph />
         </div>
         
-        <div className="col" >
+        <div className="col-md-6 border" >
 
           {/* <Record_Input /> */}
           <Record_List />
