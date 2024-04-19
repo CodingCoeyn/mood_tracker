@@ -11,7 +11,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      models.rating.hasMany(models.daily_record);
+      // models.rating.hasMany(models.daily_record);
     }
   }
   rating.init({

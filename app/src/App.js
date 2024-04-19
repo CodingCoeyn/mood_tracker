@@ -17,7 +17,6 @@ function App() {
         
         <div className="col-md-6 border" >
 
-          {/* <Record_Input /> */}
           <Record_List />
         </div>
 

@@ -62,6 +62,30 @@ app.get('/daily_records/:id', (req,res) => {
 
 });
 
+app.get('/ratings', (req,res) => {
+    
+    try {
+        db.daily_record.findAll({
+            include: [{
+                model: db.rating,
+                as: "rating"
+            }]
+        }).then(daily_records=>{
+
+            daily_records.forEach(daily_record=>{
+                console.log(`${daily_record.firstName}'s ratings:`)
+                daily_record.ratings.forEach(rating=>{
+                    console.log(rating.name)
+                })
+            })
+        })
+        
+    } catch (error) {
+        console.error(error.message);
+    }
+
+});
+
 
 // UPDATE
 
