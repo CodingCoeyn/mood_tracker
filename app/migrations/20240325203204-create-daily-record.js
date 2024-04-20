@@ -18,8 +18,8 @@ module.exports = {
           model: 'ratings',
           key: 'id'
         },
-        onUpdate: 'CASCADE',
-        onDelete: 'SET NULL'
+        // onUpdate: 'CASCADE',
+        // onDelete: 'SET NULL'
       },
       createdAt: {
         allowNull: false,
