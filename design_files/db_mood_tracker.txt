@@ -46,6 +46,8 @@ Indexes:
 Foreign-key constraints:
     "daily_records_ratingId_fkey" FOREIGN KEY ("ratingId") REFERENCES ratings(id)
 
+==================================================================================================================
+
 mood_tracker=# SELECT * FROM ratings; \d ratings
  id |   name    | value
 ----+-----------+-------

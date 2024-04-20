@@ -65,21 +65,9 @@ app.get('/daily_records/:id', (req,res) => {
 app.get('/ratings', (req,res) => {
     
     try {
-        // db.daily_record.findAll({
-        //     include: {
-        //         model: rating,
-        //         as: 'rting'
-        //     }
-        // }).then(daily_records=>{
-        //         daily_records.forEach( daily_record =>{
-                    
-        //             console.log(daily_record.ratings);
-        //         });
-        //     // res.send(daily_records)
-        // });
-        
-        db.daily_record.findAll().then(daily_records=>{
-            res.send(daily_records)
+      
+        db.rating.findAll().then(ratings=>{
+            res.send(ratings)
         });
     } catch (error) {
         console.error(error.message);
