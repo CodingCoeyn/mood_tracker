@@ -13,7 +13,13 @@ module.exports = {
         type: Sequelize.STRING
       },
       ratingId: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'ratings',
+          key: 'id'
+        },
+        // onUpdate: 'CASCADE',
+        // onDelete: 'SET NULL'
       },
       createdAt: {
         allowNull: false,

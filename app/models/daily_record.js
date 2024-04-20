@@ -11,7 +11,14 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      models.daily_record.belongsTo(models.rating);
+        models.daily_record.belongsTo(models.rating);
+      
+      // try {
+        
+      //   models.daily_record.hasOne(models.rating, {as: 'rating', foreignkey:"id"});
+      // } catch (error) {
+      //   console.log(error.message)
+      // }
     }
   }
   daily_record.init({
@@ -21,5 +28,6 @@ module.exports = (sequelize, DataTypes) => {
     sequelize,
     modelName: 'daily_record',
   });
+  
   return daily_record;
 };

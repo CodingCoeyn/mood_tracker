@@ -18,3 +18,56 @@
   6 | Unwell    |    -2
   7 | Spiraling |    -3
 (7 rows)
+
+***************************************
+Issue 6 - Association fix
+***************************************
+
+mood_tracker=# SELECT * FROM daily_records; \d daily_records
+ id | mood  | ratingId |         createdAt          |         updatedAt
+----+-------+----------+----------------------------+----------------------------
+  1 | Happy |        3 | 2024-04-20 00:52:55.243-04 | 2024-04-20 00:52:55.243-04
+  2 | Sad   |        5 | 2023-12-31 19:00:00-05     | 2024-04-20 00:52:55.243-04
+  3 | Tired |        6 | 2024-01-18 19:00:00-05     | 2024-04-20 00:52:55.243-04
+  4 | Happy |        4 | 2023-12-28 19:00:00-05     | 2024-04-20 00:52:55.243-04
+(4 rows)
+
+
+                                      Table "public.daily_records"
+  Column   |           Type           | Collation | Nullable |                  Default
+-----------+--------------------------+-----------+----------+-------------------------------------------
+ id        | integer                  |           | not null | nextval('daily_records_id_seq'::regclass)
+ mood      | character varying(255)   |           |          |
+ ratingId  | integer                  |           |          |
+ createdAt | timestamp with time zone |           | not null |
+ updatedAt | timestamp with time zone |           | not null |
+Indexes:
+    "daily_records_pkey" PRIMARY KEY, btree (id)
+Foreign-key constraints:
+    "daily_records_ratingId_fkey" FOREIGN KEY ("ratingId") REFERENCES ratings(id)
+
+==================================================================================================================
+
+mood_tracker=# SELECT * FROM ratings; \d ratings
+ id |   name    | value
+----+-----------+-------
+  1 | Great     |     3
+  2 | Good      |     2
+  3 | Fine      |     1
+  4 | Okay      |     0
+  5 | Blah      |    -1
+  6 | Unwell    |    -2
+  7 | Spiraling |    -3
+(7 rows)
+
+
+                                    Table "public.ratings"
+ Column |          Type          | Collation | Nullable |               Default
+--------+------------------------+-----------+----------+-------------------------------------
+ id     | integer                |           | not null | nextval('ratings_id_seq'::regclass)
+ name   | character varying(255) |           |          |
+ value  | integer                |           |          |
+Indexes:
+    "ratings_pkey" PRIMARY KEY, btree (id)
+Referenced by:
+    TABLE "daily_records" CONSTRAINT "daily_records_ratingId_fkey" FOREIGN KEY ("ratingId") REFERENCES ratings(id)

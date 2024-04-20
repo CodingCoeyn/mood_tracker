@@ -1,23 +1,29 @@
 import logo from './logo.svg';
 import './App.css';
+import Record_Graph from './components/Record_Graph';
+import Record_List from './components/Record_List';
+import Record_Modal from './components/Record_Modal';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="App container mt-4">
+      
+      <div className="row">
+
+        <div className="col-md-6 border-black border-2 border" >
+
+          <Record_Graph />
+        </div>
+        
+        <div className="col-md-6 border" >
+
+          <Record_List />
+        </div>
+
+      </div>
+
+      <Record_Modal />
+      
     </div>
   );
 }
