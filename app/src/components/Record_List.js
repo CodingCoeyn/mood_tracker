@@ -17,7 +17,19 @@ const Record_List = () => {
       console.error(error.message);
     }
 
-  }
+  };
+  const deleteRecord = async id =>{
+    try {
+        const response = await fetch(`http://localhost:8000/daily_records/${id}`, {
+          method: "DELETE"
+        });
+        console.log("deleteRecord");
+        set_records(daily_records.filter(daily_record => daily_record.id !== id));
+
+    } catch (error) {
+      console.error(error.message);
+    }
+  };
 
   useEffect(() =>{
     getAllRecords();
@@ -38,12 +50,12 @@ const Record_List = () => {
         <tbody>
           {
             daily_records.map(daily_record => (
-              <tr key={daily_record.id}>
-                <td>{daily_record.createdAt}</td>
-                <td>{daily_record.mood}</td>
-                <td>{daily_record.ratingId}</td>
-                <td><button>Edit</button></td>
-                <td><button>Delete</button></td>
+              <tr id={daily_record.id} key={daily_record.id}>
+                <td id={"createdAt_"+daily_record.id} >{daily_record.createdAt}</td>
+                <td id={"mood_"+daily_record.id}>{daily_record.mood}</td>
+                <td id={"ratingId_"+daily_record.id}>{daily_record.ratingId}</td>
+                <td id={"edit_"+daily_record.id}><button>Edit</button></td>
+                <td id={"delete_"+daily_record.id}><button onClick ={ () => deleteRecord(daily_record.id) }>Delete</button></td>
               </tr>
             ))
           }

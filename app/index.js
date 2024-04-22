@@ -71,14 +71,14 @@ app.get('/ratings', (req,res) => {
         db.daily_record.findAll({include: db.rating}).then(daily_records=>{
         
             // res.send(daily_records);
-            var test = [];
+            var rating_array = [];
             daily_records.forEach(daily_record => {
-                test.push(
+                rating_array.push(
                     [JSON.stringify(daily_record.createdAt), JSON.stringify(daily_record.rating.value)]
                 );
                 // console.log(JSON.stringify(daily_record.rating.value));
             });
-            res.send(test);
+            res.send(rating_array);
         });
 
         // db.daily_record.findAll().then(daily_records=>{
