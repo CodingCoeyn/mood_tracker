@@ -22,7 +22,7 @@ function App() {
 
       </div>
 
-      <Record_Modal />
+      {/* <Record_Modal /> */}
       
     </div>
   );

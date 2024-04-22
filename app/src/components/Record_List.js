@@ -1,4 +1,6 @@
 import React, {Fragment, useEffect, useState} from "react";
+import Record_Modal from './Record_Modal';
+
 
 const Record_List = () => {
 
@@ -54,8 +56,8 @@ const Record_List = () => {
                 <td id={"createdAt_"+daily_record.id} >{daily_record.createdAt}</td>
                 <td id={"mood_"+daily_record.id}>{daily_record.mood}</td>
                 <td id={"ratingId_"+daily_record.id}>{daily_record.ratingId}</td>
-                <td id={"edit_"+daily_record.id}><button>Edit</button></td>
-                <td id={"delete_"+daily_record.id}><button onClick ={ () => deleteRecord(daily_record.id) }>Delete</button></td>
+                <td id={"edit_"+daily_record.id}><Record_Modal daily_record={daily_record} /></td>
+                <td id={"delete_"+daily_record.id}><button type="button" onClick ={ () => deleteRecord(daily_record.id) }>Delete</button></td>
               </tr>
             ))
           }
