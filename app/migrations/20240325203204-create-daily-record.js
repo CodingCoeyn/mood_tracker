@@ -18,16 +18,16 @@ module.exports = {
           model: 'ratings',
           key: 'id'
         },
-        // onUpdate: 'CASCADE',
-        // onDelete: 'SET NULL'
+        onUpdate: 'CASCADE',
+        onDelete: 'SET NULL'
       },
       createdAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATEONLY
       },
       updatedAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATEONLY
       }
     });
   },

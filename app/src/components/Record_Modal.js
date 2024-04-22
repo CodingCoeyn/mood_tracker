@@ -16,7 +16,7 @@ const Record_Modal = ({daily_record}) => {
   
   const updateRecord = async (e) =>{
     e.preventDefault();
-    
+    // e.preventDefault();
     try {
       const body = {mood}; /*ratingId */
       const response = await fetch(`localhost:8000/daily_records/${daily_record.id}`,{
@@ -24,6 +24,8 @@ const Record_Modal = ({daily_record}) => {
         headers: {"Content-Type": "application/json"},
         body: JSON.stringify(body)
       });
+
+
     } catch (error) {
       console.error(error.message);
     }
@@ -57,7 +59,7 @@ const Record_Modal = ({daily_record}) => {
           </select>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="primary" onClick={handleClose}>
+          <Button variant="primary" onClick={e => updateRecord(e)}>
             Save Changes
           </Button>
           <Button variant="secondary" onClick={handleClose}>
