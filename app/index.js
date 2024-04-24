@@ -115,17 +115,17 @@ app.get('/ratings', (req,res) => {
 app.put('/daily_records/:id', (req, res) => {
 
     try {
-        
-        db.daily_record.update({
-            mood: req.query.mood,
-            ratingId: parseInt(req.query.ratingId),
-            updatedAt: new Date()
-        },{
-            where:{id: parseInt(req.params.id)}
-        }).then(records_changed=>{
-            res.send(records_changed+' records have been updated.')
-            // 
-        });
+        console.log("updated", req.query);
+        // db.daily_record.update({
+        //     mood: req.query.mood,
+        //     ratingId: parseInt(req.query.ratingId),
+        //     updatedAt: new Date()
+        // },{
+        //     where:{id: parseInt(req.params.id)}
+        // }).then(records_changed=>{
+        //     // res.send(records_changed+' records have been updated.');
+        //     console.log(records_changed+' records have been updated.');
+        // });
     } catch (error) {
         console.error(error.message);     
     }

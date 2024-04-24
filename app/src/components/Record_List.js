@@ -11,7 +11,7 @@ const Record_List = () => {
       const response = await fetch("http://localhost:8000/daily_records");
       const jsonData = await response.json();
 
-      console.log(jsonData);
+      // console.log(jsonData);
 
       set_records(jsonData);
       
@@ -22,7 +22,7 @@ const Record_List = () => {
   };
   const deleteRecord = async id =>{
     try {
-        const response = await fetch(`http://localhost:8000/daily_records/${id}`, {
+        const response = await fetch("http://localhost:8000/daily_records/"+{id}, {
           method: "DELETE"
         });
         console.log("deleteRecord");
