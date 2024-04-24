@@ -74,7 +74,7 @@ app.get('/ratings', (req,res) => {
             var rating_array = [];
             daily_records.forEach(daily_record => {
                 rating_array.push(
-                    [JSON.stringify(daily_record.createdAt), JSON.stringify(daily_record.rating.value)]
+                    [daily_record.createdAt, daily_record.rating.value]
                 );
                 // console.log(JSON.stringify(daily_record.rating.value));
             });
