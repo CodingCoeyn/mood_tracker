@@ -13,7 +13,8 @@ function App() {
       
       <div className="row">
 
-        <div className="col-md-6 border-black border-2 border" >
+        {/* <div className="col-md-6 border-black border-2 border" > */}
+        <div className="col-md-6" >
 
           <Record_Graph />
         </div>

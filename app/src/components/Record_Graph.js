@@ -5,11 +5,19 @@ import * as d3 from 'd3';
 const Record_Graph = () => {
 
     const [data] = useState([1,-1,-2,0,3,0,3,2]);
+
+    const [data_date] = useState([
+      {date: new Date("2023-02-20"), rating: 0},
+      {date: new Date("2023-04-21"), rating: -1},
+      {date: new Date("2023-10-03"), rating: 1},
+      {date: new Date("2024-01-01"), rating: 3},
+      {date: new Date("2024-02-29"), rating: -3}
+    ]);
     const svgRef = useRef();
   
     useEffect(() =>{
       //set up svg
-      const w = 400, h = 100;
+      const w = 600, h = 100;
       const svg = d3.select(svgRef.current)
       .attr('width', w)
       .attr('height', h)
@@ -18,49 +26,47 @@ const Record_Graph = () => {
       .style('margin-bottom', '50')
       .style('overflow', 'visible');
       
-      //setting scaling
-      const xScale = d3.scaleLinear()//scale to plot our points
-      .domain([0,data.length-1])
-      .range([0, w]);
+      //Set X & Y scales
 
-      const yScale = d3.scaleLinear()
-      .domain([-3,h-97]) //the numbers on the axes
-      .range([h+97,0]); //the shape of the line
-     
-      const generateScaledLine = d3.line()
-      .x((d,i) => xScale(i)) //generates out like
-      .y(yScale)//plotting it using the scale we created
-      .curve(d3.curveCardinal);
-     
-      //set axies
-        const xAxis = d3.axisBottom(xScale)
-        .ticks(data.length)
-        .tickFormat(i => i+1);
-        const yAxis = d3.axisLeft(yScale)
-        .ticks(5) //# of ticks on graph
+      const x = d3.scaleTime()
+        .range([0, w]);
+      const y = d3.scaleLinear()
+        .range([h, 0]);
+      
+      //set axes
+      x.domain(d3.extent(data_date, d => d.date));
+      y.domain([-3, d3.max(data_date, d => d.rating)]);
 
-        svg.append('g')
-        .call(xAxis)
-        .attr('transform', `translate(0, ${h+97})`);// for putting the xaxis on the bottom
+      svg.append("g")
+      .attr("transform", `translate(0, ${h/2})`)
+      .call(d3.axisBottom(x)
+      .ticks(d3.timeMonth.every(1))
+      .tickFormat(d3.timeFormat("%b %Y")));
 
-        svg.append('g')
-        .call(yAxis);
+      svg.append("g")
+      .call(d3.axisLeft(y)
+      .ticks(7))
 
-      //set data for svg
-      svg.selectAll('.line')
-      .data([data])
-      .join('path')
-      .attr('d', d => generateScaledLine(d)) //d is data
-      .attr('fill', 'none')
-      .attr('stroke', 'black');
+      
+      // //set data for svg
+      // const generateScaledLine = d3.line()
+      // .x((d,i) => xScale(i)) //generates out like
+      // .y(yScale)//plotting it using the scale we created
+      // .curve(d3.curveCardinal);
+      
+      // svg.selectAll('.line')
+      // .data([data])
+      // .join('path')
+      // .attr('d', d => generateScaledLine(d)) //d is data
+      // .attr('fill', 'none')
+      // .attr('stroke', 'black');
   
     }, [data]); //this array will update the dom if the data changes
 
     return(
-        <div>
-
-            <svg ref={svgRef}> </svg>
-        </div>
+      <div>
+        <svg ref={svgRef}> </svg>
+      </div>
 
     );
     
