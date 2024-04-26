@@ -11,15 +11,14 @@ function App() {
   return (
     <div className="App container mt-4">
       
-      <div className="row">
+      <div className="row justify-content-around">
 
-        {/* <div className="col-md-6 border-black border-2 border" > */}
-        <div className="col-md-6" >
+        <div className="col-md-6 border-black border-2 border" >
 
           <Record_Graph />
         </div>
         
-        <div className="col-md-6 border" >
+        <div className="col-md-5 border" >
 
           <Record_List />
         </div>

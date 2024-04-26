@@ -5,20 +5,19 @@ import Modal from 'react-bootstrap/Modal';
 
 const Record_Modal = ({daily_record}) => {
 
-  // console.log("modal",daily_record);
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-
+  
   const [mood, setMood] = useState(daily_record.mood);
   const [ratingId, setRating] = useState(daily_record.ratingId);
+  const [id] = useState(daily_record.id);
   
   const updateRecord = async (e) =>{
     e.preventDefault();
-    console.log("updateRecord");
     try {
-      const body = {mood, ratingId};
+      const body = {mood, ratingId, id};
       const response = await fetch(`http://localhost:8000/daily_records/${daily_record.id}`,{
         method: "PUT",
         headers: {"Content-Type": "application/json"},
@@ -31,7 +30,6 @@ const Record_Modal = ({daily_record}) => {
   };
 
   return(
-    // modal fade
     <Fragment>
       
       <Button data-target={`#record_modal_${daily_record.id}`} variant="primary" onClick={handleShow}>
@@ -58,8 +56,8 @@ const Record_Modal = ({daily_record}) => {
           </select>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="primary" onClick={e => updateRecord(e)}>
-            Save Changes
+          <Button variant="primary" onClick={e => { updateRecord(e); handleClose(); }}>
+            Save
           </Button>
           <Button variant="secondary" onClick={handleClose}>
             Close
