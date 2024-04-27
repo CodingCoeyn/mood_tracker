@@ -32,7 +32,7 @@ const Record_Modal = ({daily_record}) => {
   return(
     <Fragment>
       
-      <Button data-target={`#record_modal_${daily_record.id}`} variant="primary" onClick={handleShow}>
+      <Button className="edit" data-target={`#record_modal_${daily_record.id}`}  onClick={handleShow}>
         Edit
       </Button>
 
@@ -56,10 +56,10 @@ const Record_Modal = ({daily_record}) => {
           </select>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="primary" onClick={e => { updateRecord(e); handleClose(); }}>
+          <Button  className="save" onClick={e => { updateRecord(e); handleClose(); }}>
             Save
           </Button>
-          <Button variant="secondary" onClick={handleClose}>
+          <Button  className="close" onClick={handleClose}>
             Close
           </Button>
         </Modal.Footer>

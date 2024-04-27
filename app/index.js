@@ -37,7 +37,11 @@ app.post('/daily_records', (req,res) => {
 app.get('/daily_records', (req,res) => {
     
     try {
-        db.daily_record.findAll().then(daily_records=>{
+        db.daily_record.findAll({
+            order: [
+                ['createdAt', 'ASC']
+            ]
+        }).then(daily_records=>{
             res.send(daily_records)
         });
         
@@ -69,11 +73,18 @@ app.get('/ratings', (req,res) => {
     
     try {
         
-        db.daily_record.findAll({include: db.rating}).then(daily_records=>{
+        db.daily_record.findAll({
+            include:[{
+                model: db.rating,
+                order: [
+                    ['createdAt', 'ASC']
+                ]
+            }]
+        }).then(daily_records=>{
             var rating_array = [];
             daily_records.forEach(daily_record => {
                 rating_array.push(
-                    {date: daily_record.createdAt, rating: daily_record.rating.value}
+                    [new Date(daily_record.createdAt).valueOf(), daily_record.rating.value]
                 );
             });
             res.send(rating_array);

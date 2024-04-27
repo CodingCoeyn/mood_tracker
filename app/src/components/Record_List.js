@@ -71,8 +71,8 @@ const Record_List = () => {
   
   return(
     <Fragment>
-      <table>
-        <thead>
+      <table className="container">
+        <thead className="">
           <tr>
               <th>Date</th>
               <th>Mood</th>
@@ -81,7 +81,7 @@ const Record_List = () => {
               <th>Delete</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody className="">
           {
             daily_records.map(daily_record => (
               <tr id={daily_record.id} key={daily_record.id}>
@@ -89,7 +89,7 @@ const Record_List = () => {
                 <td id={"mood_"+daily_record.id}>{daily_record.mood}</td>
                 <td id={"ratingId_"+daily_record.id}>{daily_record.ratingId}</td>
                 <td id={"edit_"+daily_record.id}><Record_Modal daily_record={daily_record} /></td>
-                <td id={"delete_"+daily_record.id}><button type="button" onClick ={ () => deleteRecord(daily_record.id) }>Delete</button></td>
+                <td id={"delete_"+daily_record.id}><Button className="delete" type="button" onClick ={ () => deleteRecord(daily_record.id) }>Delete</Button></td>
               </tr>
             ))
           }
@@ -97,10 +97,12 @@ const Record_List = () => {
       </table>
       
       {/* <!-- Add Modal --> */}
-      <div>
-        <Button data-target="#record_modal_new" variant="primary" onClick={handleShow}>
-         Add
-        </Button>
+      <div className="container">
+        <div className="row">
+          <Button className="add my-3" data-target="#record_modal_new"  onClick={handleShow}>
+          Add
+          </Button>
+        </div>
 
         <Modal id="record_modal_new" show={show} onHide={handleClose}>
           <Modal.Header closeButton>
@@ -122,10 +124,10 @@ const Record_List = () => {
             </select>
           </Modal.Body>
           <Modal.Footer>
-            <Button variant="primary" onClick={e => { addRecord(e); handleClose(); }}>
+            <Button className="save" onClick={e => { addRecord(e); handleClose(); }}>
               Save
             </Button>
-            <Button variant="secondary" onClick={handleClose}>
+            <Button className="close" onClick={handleClose}>
               Close
             </Button>
           </Modal.Footer>

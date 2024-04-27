@@ -1,5 +1,5 @@
 import logo from './logo.svg';
-import './App.css';
+import './styles/App.css';
 import Record_Graph from './components/Record_Graph';
 import Record_List from './components/Record_List';
 import Record_Modal from './components/Record_Modal';
@@ -13,7 +13,7 @@ function App() {
       
       <div className="row justify-content-around">
 
-        <div className="col-md-6 border-black border-2 border" >
+        <div className="col-md-6 border-2 border" >
 
           <Record_Graph />
         </div>

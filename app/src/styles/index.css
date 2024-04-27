@@ -15,3 +15,5 @@ code {
 .test-color{
   color: cornflowerblue;
 }
+
+@import "main.css";
