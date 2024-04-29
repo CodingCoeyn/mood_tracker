@@ -3,8 +3,6 @@ import Record_Modal from './Record_Modal';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 
-
-
 const Record_List = () => {
 
   //Listing all records
@@ -16,7 +14,6 @@ const Record_List = () => {
       const jsonData = await response.json();
 
       // console.log(jsonData);
-
       set_records(jsonData);
       
     } catch (error) {
@@ -71,7 +68,7 @@ const Record_List = () => {
   return(
     <Fragment>
       <table className="container">
-        <thead className="">
+        <thead className=" mb-2">
           <tr>
               <th>Date</th>
               <th>Mood</th>
@@ -97,8 +94,9 @@ const Record_List = () => {
       
       {/* <!-- Add Modal --> */}
       <div className="container">
-        <div className="row">
-          <Button className="add my-3" data-target="#record_modal_new"  onClick={handleShow}>
+        <div className="row justify-content-center">
+
+          <Button className="add my-3 col-sm-12 col-md-10" data-target="#record_modal_new"  onClick={handleShow}>
           Add
           </Button>
         </div>

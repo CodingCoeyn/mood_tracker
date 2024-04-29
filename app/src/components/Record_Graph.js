@@ -9,6 +9,7 @@ const Record_Graph = () => {
   const getRatings = async () =>{
     const response =  await fetch("http://localhost:8000/ratings");
     const jsonData =  await response.json();
+
     //empty temp[], async will push the data twice
     temp = [];
 
@@ -29,11 +30,12 @@ const Record_Graph = () => {
     .attr('width', w)
     .attr('height', h)
     .style('background', 'linear-gradient(#ACFFE9, #EAFF87, #FF714B)')
-    .style('margin-top', '50')
-    .style('margin-bottom', '50')
+    .style('margin-top', '45')
+    .style('margin-bottom', '45')
     .style('color', '#540045')
     .style('overflow', 'visible');
-    
+
+   
     //set x & y scales
     const x = d3.scaleTime() 
       .range([0, w]);
@@ -75,11 +77,11 @@ const Record_Graph = () => {
   svgChart();
   useEffect(() =>{
     getRatings();
-  },[]); //this array will update the dom if the data changes
+  },[]);
 
 
   return(
-    <div>
+    <div id="chart">
       <svg ref={svgRef}> </svg>
     </div>
 

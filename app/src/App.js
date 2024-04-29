@@ -7,19 +7,17 @@ import Record_List from './components/Record_List';
 
 function App() {
 
-
   return (
-    <div className="App container mt-4">
+    <div className="App container mt-3">
       
       <div className="row justify-content-around">
 
-        <div className="col-md-6 border-2 border" >
+        <div className="col-md-12 border-2 border mb-3" >
 
           <Record_Graph />
         </div>
         
-        <div className="col-md-5 border" >
-
+        <div className="col-md-12" >
           <Record_List />
         </div>
 
