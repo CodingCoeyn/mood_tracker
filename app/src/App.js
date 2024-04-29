@@ -2,7 +2,7 @@ import logo from './logo.svg';
 import './styles/App.css';
 import Record_Graph from './components/Record_Graph';
 import Record_List from './components/Record_List';
-import Record_Modal from './components/Record_Modal';
+// import Record_Modal from './components/Record_Modal';
 
 
 function App() {

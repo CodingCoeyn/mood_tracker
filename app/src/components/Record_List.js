@@ -5,7 +5,6 @@ import Modal from 'react-bootstrap/Modal';
 
 
 
-
 const Record_List = () => {
 
   //Listing all records
@@ -36,7 +35,6 @@ const Record_List = () => {
         const response = await fetch(`http://localhost:8000/daily_records/${id}`, {
           method: "DELETE"
         });
-        // console.log("deleteRecord");
         set_records(daily_records.filter(daily_record => daily_record.id !== id));
 
     } catch (error) {
@@ -55,7 +53,6 @@ const Record_List = () => {
 
   const addRecord = async (e) =>{
     e.preventDefault();
-
     try {
       const body = {mood, ratingId};
       const response = await fetch(`http://localhost:8000/daily_records`,{
@@ -63,11 +60,13 @@ const Record_List = () => {
         headers: {"Content-Type": "application/json"},
         body: JSON.stringify(body)
       });
-      
     } catch (error) {
       console.error(error.message);
     }
   }
+  useEffect(() => { 
+    setRating(1); //makes sure ratingId is not null
+  });
   
   return(
     <Fragment>
@@ -87,7 +86,7 @@ const Record_List = () => {
               <tr id={daily_record.id} key={daily_record.id}>
                 <td id={"createdAt_"+daily_record.id} >{daily_record.createdAt}</td>
                 <td id={"mood_"+daily_record.id}>{daily_record.mood}</td>
-                <td id={"ratingId_"+daily_record.id}>{daily_record.ratingId}</td>
+                <td id={"ratingId_"+daily_record.id}>{daily_record.rating.name}</td>
                 <td id={"edit_"+daily_record.id}><Record_Modal daily_record={daily_record} /></td>
                 <td id={"delete_"+daily_record.id}><Button className="delete" type="button" onClick ={ () => deleteRecord(daily_record.id) }>Delete</Button></td>
               </tr>

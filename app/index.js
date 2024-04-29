@@ -2,7 +2,6 @@ const cors = require("cors");
 const db = require('./models');
 const sequelize = require('sequelize');
 const express = require('express');
-
 const app = express();
 
 app.use(cors());
@@ -23,14 +22,13 @@ app.post('/daily_records', (req,res) => {
             createdAt: new Date(),
             updatedAt: new Date()
         }).then(record_created=>{
-            // res.send(record_created)
-            console.log(record_created);
+            res.send(record_created);
         });
+
     } catch (error) {
         console.error(error.message);
     }
-
-
+ 
 });
 
 // READ
@@ -38,9 +36,12 @@ app.get('/daily_records', (req,res) => {
     
     try {
         db.daily_record.findAll({
-            order: [
-                ['createdAt', 'ASC']
-            ]
+            include:[{
+                model: db.rating,
+                order: [
+                    ['createdAt', 'ASC']
+                ]
+            }]
         }).then(daily_records=>{
             res.send(daily_records)
         });
@@ -48,7 +49,6 @@ app.get('/daily_records', (req,res) => {
     } catch (error) {
         console.error(error.message);
     }
-
 });
 
 app.get('/daily_records/:id', (req,res) => {
@@ -90,33 +90,11 @@ app.get('/ratings', (req,res) => {
             res.send(rating_array);
         });
 
-        // db.daily_record.findAll().then(daily_records=>{
-        //     var records_graph = [];
-            
-        //     daily_records.forEach(daily_record => {
-                
-        //         db.rating.findOne({
-        //             where:{id: parseInt(daily_record.id)}
-        //         }).then(found_record=>{
-        //             // res.send(found_record)
-        //             records_graph.push(JSON.stringify(found_record));
-                    
-        //             console.log("graph",records_graph);
-        //         });
-        //     });
-           
-
-        // });
-
-        // res.send(records_graph);
-      
-        // db.rating.findAll().then(ratings=>{
-        //     res.send(ratings)
-        // });
     } catch (error) {
         console.error(error.message);
     }
 });
+
 
 
 // UPDATE
