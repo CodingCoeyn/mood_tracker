@@ -21,11 +21,12 @@ const Record_List = () => {
     }
 
   };
-  
   useEffect(() =>{
+    
+    //fetch all records
     getAllRecords();
-  }, []);
-
+  },[]);
+  
   //Delete a record
   const deleteRecord = async id =>{
     try {
@@ -41,7 +42,6 @@ const Record_List = () => {
 
   //Add a record
   const [show, setShow] = useState(false);
-
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   
@@ -50,6 +50,7 @@ const Record_List = () => {
 
   const addRecord = async (e) =>{
     e.preventDefault();
+
     try {
       const body = {mood, ratingId};
       const response = await fetch(`http://localhost:8000/daily_records`,{
@@ -62,11 +63,14 @@ const Record_List = () => {
     }
   }
   useEffect(() => { 
-    setRating(1); //makes sure ratingId is not null
-  });
+
+    //ensure ratingId is not null
+    setRating(1);
+  },[]);
   
   return(
     <Fragment>
+       {/* <!-- List of Records --> */}
       <table className="container">
         <thead className=" mb-2">
           <tr>
@@ -92,11 +96,11 @@ const Record_List = () => {
         </tbody>
       </table>
       
-      {/* <!-- Add Modal --> */}
-      <div className="container">
-        <div className="row justify-content-center">
+       {/* <!-- Add Modal --> */}
+       <div className="container">
+        <div className="row justify-content-end">
 
-          <Button className="add my-3 col-sm-12 col-md-10" data-target="#record_modal_new"  onClick={handleShow}>
+          <Button className="add my-3 col-1" data-target="#record_modal_new"  onClick={handleShow}>
           Add
           </Button>
         </div>
