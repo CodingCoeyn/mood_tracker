@@ -51,6 +51,6 @@
     "react-bootstrap": "^2.10.2"
   },
   "engines": {
-    "node": "20.x"
+    "node": "^20.12.2"
   }
 }
