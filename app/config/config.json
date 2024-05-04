@@ -1,0 +1,19 @@
+{
+  "development": {
+    "database": "mood_tracker",
+    "username": "mood_trkr",
+    "password": "mood_trkr",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  },
+  "test": {
+    "database": "userapp_test",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  },
+  "production": {
+    "database": "userapp_production",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  }
+}
