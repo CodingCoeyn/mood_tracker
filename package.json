@@ -1,5 +1,5 @@
 {
-  "name": "My Mood Tracker App",
+  "name": "mood_tracker",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
