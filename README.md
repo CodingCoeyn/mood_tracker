@@ -15,19 +15,19 @@ This mood tracker will record and graph the user's mood over time. The goal is t
 [Node](https://nodejs.org/en/download/)<br>
 [Express](https://expressjs.com/) npm install express --save<br>
 [PostgresQL](https://www.postgresql.org/download/) npm install -g pg pg-hstore --save<br>
-[Sequelize](https://sequelize.org/docs/v6/getting-started/) npm install -g sequelize --save<br>
+[Sequelize](https://sequelize.org/docs/v6/getting-started/) npm install -g sequelize sequelize-cli --save<br>
+(optional)[Nodemon](https://www.npmjs.com/package/nodemon) npm install -g nodemon
 
 ### How to run
-
+cd app; nodemon OR cd app; node index.js <br>
+cd app; npm start
 
 ## How to Use the Project
 The Mood Tracker is a dashboard that consists of a graph and an area for user input.
 
-The user will use the dashboard to record their mood and rating. Your mood is how you feel and your rating is how you're feeling on a scale of “Great” to “Spiraling”. You might be in the midst of a depressive episode and want to take note of a happy moment - 3/13/2024 | Mood: Happy | Rating: Spiraling, or you're feeling sad but would rate it as "Blah" instead of "Unwell".
+The user will use the dashboard to record their mood and rating. Your mood is how you feel and your rating is how you're feeling on a scale of “Great” to “Spiraling”. The graph is plotted based on the user's rating. Each rating has an integer value - Great = 3, Good = 2, Fine = 1, Okay = 0, Blah = -1, Unwell = -2, Spiraling =-3 - that determines where it falls on the graph's y-axis. The x-axis is time in months.
 
-The user will click the Add button and a modal will appear with inputs for Mood and Rondition. The user types in their mood and selects their rondition from a dropdown.
-
-The graph is plotted based on the user's rating. Each rating has an integer value - Great = 3, Good = 2, Fine = 1, Okay = 0, Blah = -1, Unwell = -2, Spiraling =-3 - that determines where it falls on the graph's y-axis. The x-axis is time in months.
+The user will click the Add button and a modal will appear with inputs for Mood and Rating. The user types in their mood and selects their rating from a dropdown.
 
 Records can be read, added, edited and deleted all from the dashboard. Removing a record from the list, removes it from the graph.
 
