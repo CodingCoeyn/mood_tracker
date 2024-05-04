@@ -6,11 +6,12 @@ const Record_Graph = () => {
   const [ratingsData, set_data] = useState([]);
   const svgRef = useRef();
   let temp = [];
+  
   const getRatings = async () =>{
     const response =  await fetch("http://localhost:8000/ratings");
     const jsonData =  await response.json();
 
-    //empty temp[], async will push the data twice
+    //empty temp[], async will duplicate the data
     temp = [];
 
     jsonData.sort();
@@ -70,8 +71,6 @@ const Record_Graph = () => {
     .attr("stroke", "#540045")
     .attr("stroke-width", 1)
     .attr("d", line);
-    
-
   }
 
   svgChart();
