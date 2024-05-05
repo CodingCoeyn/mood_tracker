@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './styles/App.css';
-import Record_Graph from './components/Record_Graph';
+// import Record_Graph from './components/Record_Graph';
 import Record_List from './components/Record_List';
 
 function App() {
