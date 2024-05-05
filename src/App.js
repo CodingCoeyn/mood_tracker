@@ -12,7 +12,7 @@ function App() {
 
         <div className="col-md-12  mb-3" >
 
-          <Record_Graph />
+          {/* <Record_Graph /> */}
         </div>
         <hr></hr>
         <div className="col-md-12" >
