@@ -12,7 +12,10 @@
     "dialect": "postgres"
   },
   "production": {
-    "use_env_vsriable": "DATABASE_URL",
+    "host": "cf9gid2f6uallg.cluster-czrs8kj4isg7.us-east-1.rds.amazonaws.com",
+    "database": "d7g65fdgf54bqh",
+    "username": "udrc5ml70dfg2n",
+    "password": "p9246e1f260c1dce2a2bf9338a0314dc987130c12fdab37ba8607593b78eadd08",
     "dialect": "postgres",
     "dialectOptions": {
       "ssl": {
