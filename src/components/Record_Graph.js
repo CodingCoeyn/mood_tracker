@@ -1,5 +1,5 @@
 import React, {useState, useEffect, useRef, Fragment} from 'react';
-import * as d3 from 'd3';
+// import * as d3 from 'd3';
 
 const Record_Graph = () => {
 
