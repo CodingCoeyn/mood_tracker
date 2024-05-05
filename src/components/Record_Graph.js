@@ -8,7 +8,7 @@ const Record_Graph = () => {
   let temp = [];
   
   const getRatings = async () =>{
-    const response =  await fetch("http://localhost:8000/ratings");
+    const response =  await fetch("postgres://udrc5ml70dfg2n:p9246e1f260c1dce2a2bf9338a0314dc987130c12fdab37ba8607593b78eadd08@cf9gid2f6uallg.cluster-czrs8kj4isg7.us-east-1.rds.amazonaws.com:5432/d7g65fdgf54bqh:5432/ratings");
     const jsonData =  await response.json();
 
     //empty temp[], async will duplicate the data
