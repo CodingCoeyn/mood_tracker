@@ -154,4 +154,4 @@ app.delete('/daily_records', (req, res) => {
     
 });
 
-app.listen(process.env.PORT || 8000);
+app.listen(process.env.PORT || 5432);
