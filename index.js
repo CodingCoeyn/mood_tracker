@@ -154,4 +154,8 @@ app.delete('/daily_records', (req, res) => {
     
 });
 
-app.listen(process.env.PORT || 5432);
+app.listen(process.env.PORT || 8000,
+    () =>{
+        console.log("Server is running...");
+    }
+);
