@@ -19,8 +19,8 @@ app.post('/daily_records', (req,res) => {
         db.daily_record.create({
             mood: req.body.mood,
             ratingId: parseInt(req.body.ratingId),
-            createdAt: new Date(),
-            updatedAt: new Date()
+            createdAt: Date.now(),
+            updatedAt: Date.now()
         }).then(record_created=>{
             res.send(record_created);
         });
@@ -38,12 +38,14 @@ app.get('/daily_records', (req,res) => {
         db.daily_record.findAll({
             include:[{
                 model: db.rating,
-                order: [
-                    ['createdAt', 'ASC']
-                ]
             }]
         }).then(daily_records=>{
-            res.send(daily_records)
+            daily_records.sort((d1, d2) =>{
+                if(d1.createdAt > d2.createdAt) return -1;
+                if(d1.createdAt < d2.createdAt) return 1;
+                return 0;
+            });
+            res.send(daily_records);
         });
         
     } catch (error) {
@@ -106,7 +108,7 @@ app.put('/daily_records/:id', (req, res) => {
         db.daily_record.update({
             mood: req.body.mood,
             ratingId: parseInt(req.body.ratingId),
-            updatedAt: new Date()
+            updatedAt: new Date().valueOf()
         },{
             where:{id: parseInt(req.body.id)}
         }).then(records_changed=>{
