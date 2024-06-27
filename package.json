@@ -1,0 +1,60 @@
+{
+  "name": "mood_tracker",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@testing-library/jest-dom": "^5.17.0",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
+<<<<<<< HEAD:app/package.json
+    "body-parser": "^1.20.2",
+    "bootstrap": "^5.3.3",
+=======
+    "@types/d3": "^7.4.3",
+    "body-parser": "^1.20.2",
+    "bootstrap": "^5.3.3",
+    "cors": "^2.8.5",
+    "d3": "^7.9.0",
+>>>>>>> origin/main:package.json
+    "express": "^4.19.1",
+    "pg": "^8.11.3",
+    "pg-hstore": "^2.3.4",
+    "react": "^18.2.0",
+<<<<<<< HEAD:app/package.json
+=======
+    "react-bootstrap": "^2.10.2",
+>>>>>>> origin/main:package.json
+    "react-dom": "^18.2.0",
+    "react-scripts": "^5.0.1",
+    "sequelize": "^6.37.1",
+    "sequelize-cli": "^6.6.2"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "migrate": "sequelize db:migrate"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "engines": {
+    "node": "^20.12.2"
+  }
+}
