@@ -27,7 +27,7 @@ The Mood Tracker is a dashboard that consists of a graph and an area for user in
 
 The user will use the dashboard to record their mood and rating. Your mood is how you feel and your rating is how you're feeling on a scale of “Great” to “Spiraling”. The graph is plotted based on the user's rating. Each rating has an integer value - Great = 3, Good = 2, Fine = 1, Okay = 0, Blah = -1, Unwell = -2, Spiraling =-3 - that determines where it falls on the graph's y-axis. The x-axis is time in months.
 
-The user will click the Add button and a modal will appear with inputs for Mood and Rating. The user types in their mood and selects the rating from a dropdown.
+The user will click the Add button and a modal will appear with inputs for Mood and Rating. The user types in their mood and selects their rating from a dropdown.
 
 Records can be read, added, edited and deleted all from the dashboard. Removing a record from the list, removes it from the graph.
 
