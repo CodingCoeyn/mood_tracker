@@ -1,14 +1,17 @@
 import React, {useState, useEffect, useRef, Fragment} from 'react';
 import * as d3 from 'd3';
+import {config} from '../Constants';
+
 
 const Record_Graph = () => {
+  const URL = config.url;
 
   const [ratingsData, set_data] = useState([]);
   const svgRef = useRef();
   let temp = [];
   
   const getRatings = async () =>{
-    const response =  await fetch("http://localhost:8000/ratings");
+    const response =  await fetch(`${URL}/ratings`);
     const jsonData =  await response.json();
 
     //empty temp[], async will duplicate the data

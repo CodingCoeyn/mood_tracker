@@ -2,8 +2,11 @@
 import React, {Fragment, useEffect, useState} from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
+import {config} from '../Constants';
 
 const Record_Modal = ({daily_record}) => {
+
+  const URL = config.url;
 
   const [show, setShow] = useState(false);
 
@@ -18,7 +21,7 @@ const Record_Modal = ({daily_record}) => {
     e.preventDefault();
     try {
       const body = {mood, ratingId, id};
-      const response = await fetch(`http://localhost:8000/daily_records/${daily_record.id}`,{
+      const response = await fetch(`${URL}/daily_records/${daily_record.id}`,{
         method: "PUT",
         headers: {"Content-Type": "application/json"},
         body: JSON.stringify(body)

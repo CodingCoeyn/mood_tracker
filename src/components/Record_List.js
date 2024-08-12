@@ -20,7 +20,7 @@ const Record_List = () => {
       set_records(jsonData);
       
     } catch (error) {
-      console.error(error.message);
+      console.log(error.message);
     }
 
   };
@@ -33,7 +33,7 @@ const Record_List = () => {
   //Delete a record
   const deleteRecord = async id =>{
     try {
-        const response = await fetch(`http://localhost:8000/daily_records/${id}`, {
+        const response = await fetch(`${URL}/daily_records/${id}`, {
           // const response = await fetch(`http://localhost:5432/daily_records/${id}`, {
           method: "DELETE"
         });
@@ -57,7 +57,8 @@ const Record_List = () => {
 
     try {
       const body = {mood, ratingId};
-      const response = await fetch(`http://localhost:8000/daily_records`,{
+      console.log(body)
+      const response = await fetch(`${URL}/daily_records`,{
       // const response = await fetch(`http://localhost:5432/daily_records`,{
         method: "POST",
         headers: {"Content-Type": "application/json"},
