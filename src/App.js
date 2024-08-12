@@ -7,6 +7,7 @@ function App() {
 
   return (
     <div className="App container mt-3 ">
+      <p>RUNNNING ON....{process.env.PORT}</p>
       
       <div className="row justify-content-around">
 

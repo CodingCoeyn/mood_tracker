@@ -2,19 +2,21 @@ import React, {Fragment, useEffect, useState} from "react";
 import Record_Modal from './Record_Modal';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
-// require('dotenv').config();
+
+import {config} from '../Constants';
 
 const Record_List = () => {
-  // console.log(process.env.DATABASE_URL);
+  const URL = config.url;
+  console.log(`${URL}`);
   //Listing all records
   const [daily_records, set_records] = useState([]);
 
   const getAllRecords = async () =>{
     try {
-      const response = await fetch("/daily_records");
+      const response = await fetch(`${URL}/daily_records`);
       const jsonData = await response.json();
 
-      // console.log(jsonData);
+      console.log(jsonData);
       set_records(jsonData);
       
     } catch (error) {
@@ -31,8 +33,8 @@ const Record_List = () => {
   //Delete a record
   const deleteRecord = async id =>{
     try {
-        // const response = await fetch(`http://localhost:8000/daily_records/${id}`, {
-          const response = await fetch(`http://localhost:5432/daily_records/${id}`, {
+        const response = await fetch(`http://localhost:8000/daily_records/${id}`, {
+          // const response = await fetch(`http://localhost:5432/daily_records/${id}`, {
           method: "DELETE"
         });
         set_records(daily_records.filter(daily_record => daily_record.id !== id));
@@ -55,8 +57,8 @@ const Record_List = () => {
 
     try {
       const body = {mood, ratingId};
-      // const response = await fetch(`http://localhost:8000/daily_records`,{
-      const response = await fetch(`http://localhost:5432/daily_records`,{
+      const response = await fetch(`http://localhost:8000/daily_records`,{
+      // const response = await fetch(`http://localhost:5432/daily_records`,{
         method: "POST",
         headers: {"Content-Type": "application/json"},
         body: JSON.stringify(body)
