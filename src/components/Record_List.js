@@ -2,18 +2,23 @@ import React, {Fragment, useEffect, useState} from "react";
 import Record_Modal from './Record_Modal';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
+// require('dotenv').config();
 
 const Record_List = () => {
 
   //Listing all records
   const [daily_records, set_records] = useState([]);
 
+  const host_url = "http://"+window.location.hostname;
+  const host_port = ":"+process.env.REACT_APP_DB_PORT;
+
   const getAllRecords = async () =>{
     try {
-      const response = await fetch("http://localhost:8000/daily_records");
-      const jsonData = await response.json();
+      // const response = await fetch("http://localhost:8000/daily_records");
+      const response = await fetch(`${host_url}${host_port}/daily_records`);
 
-      // console.log(jsonData);
+      const jsonData = await response.json();
+      
       set_records(jsonData);
       
     } catch (error) {
