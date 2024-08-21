@@ -8,7 +8,7 @@ const Record_List = () => {
   //Listing all records
   const [daily_records, set_records] = useState([]);
 
-  const host_url = "http://"+window.location.hostname;
+  const host_url = "https://"+window.location.hostname;
   const host_port = ":"+process.env.REACT_APP_DB_PORT;
 
   const getAllRecords = async () =>{

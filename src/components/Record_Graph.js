@@ -7,7 +7,7 @@ const Record_Graph = () => {
   const [ratingsData, set_data] = useState([]);
   const svgRef = useRef();
   let temp = [];
-  const host_url = "http://"+window.location.hostname;
+  const host_url = "https://"+window.location.hostname;
   const host_port = ":"+process.env.REACT_APP_DB_PORT;
   
   const getRatings = async () =>{
