@@ -1,0 +1,6 @@
+you gott UPDATE
+1. The port to 5432
+2. You can check config vars in heroku backend
+3. dot env is FINE
+4. check terminal from eroku backend
+5.updtae procfile?
