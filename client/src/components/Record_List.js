@@ -1,20 +1,26 @@
+// External Imports
 import React, {Fragment, useEffect, useState} from "react";
-import Record_Modal from './Record_Modal';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 
+// Internal Imports
+import Record_Modal from './Record_Modal';
+import {config} from "../Constants"
+
 
 const Record_List = () => {
-  //Listing all records
+  // Init states
   const [daily_records, set_records] = useState([]);
 
-  const host_url = "https://"+window.location.hostname;
-  const host_port = ":"+process.env.REACT_APP_DB_PORT;
+  // Grab database url from constants file
+  const config_URL = config.db_url;
+
+  // console.log(Date.now(), config_URL);
 
   const getAllRecords = async () =>{
     try {
-      const response = await fetch("http://localhost:8000/daily_records");
-      // const response = await fetch(`${host_url}${host_port}/daily_records`);
+      // const response = await fetch("http://localhost:8000/daily_records");
+      const response = await fetch(`${config_URL}/daily_records`);
 
       const jsonData = await response.json();
       
@@ -34,7 +40,7 @@ const Record_List = () => {
   //Delete a record
   const deleteRecord = async id =>{
     try {
-        const response = await fetch(`${URL}/daily_records/${id}`, {
+        const response = await fetch(`${config_URL}/daily_records/${id}`, {
           // const response = await fetch(`http://localhost:5432/daily_records/${id}`, {
           method: "DELETE"
         });
@@ -59,7 +65,7 @@ const Record_List = () => {
     try {
       const body = {mood, ratingId};
       console.log(body)
-      const response = await fetch(`${URL}/daily_records`,{
+      const response = await fetch(`${config_URL}/daily_records`,{
       // const response = await fetch(`http://localhost:5432/daily_records`,{
         method: "POST",
         headers: {"Content-Type": "application/json"},

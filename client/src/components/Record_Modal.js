@@ -1,10 +1,15 @@
-
+// External import
 import React, {Fragment, useEffect, useState} from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 
+// Internal Imports
+import {config} from "../Constants"
+
 const Record_Modal = ({daily_record}) => {
 
+  // Grab database url from constants file
+  const config_URL = config.db_url;
 
   const [show, setShow] = useState(false);
 
@@ -19,7 +24,7 @@ const Record_Modal = ({daily_record}) => {
     e.preventDefault();
     try {
       const body = {mood, ratingId, id};
-      const response = await fetch(`${URL}/daily_records/${daily_record.id}`,{
+      const response = await fetch(`${config_URL}/daily_records/${daily_record.id}`,{
         method: "PUT",
         headers: {"Content-Type": "application/json"},
         body: JSON.stringify(body)

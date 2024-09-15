@@ -1,18 +1,25 @@
+// Externnal imports
 import React, {useState, useEffect, useRef, Fragment} from 'react';
 import * as d3 from 'd3';
 
+// Internal Imports
+import {config} from "../Constants"
 
 const Record_Graph = () => {
 
   const [ratingsData, set_data] = useState([]);
   const svgRef = useRef();
   let temp = [];
-  const host_url = "https://"+window.location.hostname;
-  const host_port = ":"+process.env.REACT_APP_DB_PORT;
+
+  // Grab database url from constants file
+  const config_URL = config.db_url;
+  console.log(Date.now(), config_URL);
   
   const getRatings = async () =>{
-    const response =  await fetch(`${host_url}${host_port}/ratings`);
+    const response =  await fetch(`${config_URL}/ratings`);
+    
     const jsonData =  await response.json();
+    console.log(Date.now(), jsonData);
 
     //empty temp[], async will duplicate the data
     temp = [];
